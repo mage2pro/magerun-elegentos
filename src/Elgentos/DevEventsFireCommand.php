@@ -233,6 +233,8 @@ class DevEventsFireCommand extends AbstractIndexerCommand
             ->setDescription('Fire an event through Magento\'s event/observer system [elgentos]')
             ->addOption('eventName', 'e', InputOption::VALUE_REQUIRED, 'Which event do you want to run?', null)
             ->addOption('parameters', 'p', InputOption::VALUE_REQUIRED, 'Do you want to add parameters?', null)
+			# 2026-05-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# https://gemini.google.com/share/eeca353016fa
             ->addOption('area', 'a', InputOption::VALUE_OPTIONAL, 'Set area code (e.g. adminhtml, frontend)', null);
     }
 
@@ -247,7 +249,8 @@ class DevEventsFireCommand extends AbstractIndexerCommand
         if (!$this->initMagento()) {
             return 1;
         }
-
+		# 2026-05-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# https://gemini.google.com/share/eeca353016fa
         if ($area = $input->getOption('area')) {
             try {
                 $this->objectManager->get(\Magento\Framework\App\State::class)->setAreaCode($area);
